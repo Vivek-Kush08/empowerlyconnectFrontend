@@ -46,7 +46,7 @@ const DashChartContainer = observer(() => {
 
   return (
     <Grid
-      templateColumns={{ base: "1fr", lg: "1fr 1fr" }}
+      // templateColumns={{ base: "1fr", lg: "1fr 1fr" }}
       gap={5}
       mb={5}
       mt={5}
@@ -58,7 +58,7 @@ const DashChartContainer = observer(() => {
           loading={categoryCoursesCount.loading}
         />
       </Card>
-      <Card width={"100%"} minH={350} p={{ base: 0, sm: 2 }}>
+      <Card width={"100%"} minH={250} p={{ base: 0, sm: 2 }}>
         <LineGraph
           data={videosChartData?.data}
           options={videosChartData?.options}

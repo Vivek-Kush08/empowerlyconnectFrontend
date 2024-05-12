@@ -10,6 +10,7 @@ import { headerHeight } from "../../config/constant/variable";
 import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
 import { dashBreadCrumb } from "./utils/breadcrumb.constant";
 import NormalTable from "../../config/component/Table/NormalTable/NormalTable";
+import RecentUserTable from "../../config/component/Table/RecentUserTable/RecentUserTable";
 // import DashboardRight from "./component/DashboardRight";
 // import MyCoursesTable from "./component/MyCoursesTable";
 // import SkeletanCategoryCard from "../../config/component/Card/CategoryCard/SkeletanCategoryCard";
@@ -23,7 +24,7 @@ const DashboardIndex = observer(() => {
   } = store;
 
   const users : any = [
-    { id: 1, name: "John", age: 30, country: "USA", email: "john@example.com" },
+    { id: 1, name: "John doe doe", age: 30, country: "USA", email: "john@example.com" },
     { id: 2, name: "Jane", age: 25, country: "USA", email: "jane@example.com"},
     { id: 3, name: "Doe", age: 40, country: "USA", email: "doe@example.com"},
     { id: 4, name: "Doe", age: 40, country: "USA", email: "doe@example.com"},
@@ -41,7 +42,13 @@ const DashboardIndex = observer(() => {
             </Box>
             <DashWidgetCard />
             {/* <SkeletanCategoryCard/> */}
+            <Grid templateColumns={'1fr 1fr'} gap={2}>
+
             <DashChartContainer />
+            <Box>
+              hellpo world
+            </Box>
+            </Grid>
           </GridItem>
           {/* <GridItem>
           <DashboardRight />
@@ -49,7 +56,7 @@ const DashboardIndex = observer(() => {
           {/* <MyCoursesTable /> */}
         </Grid>
         <Grid templateColumns={{base : "1fr", md : "1fr 1fr"}} columnGap={4}>
-        <NormalTable data={users}/>
+        <RecentUserTable data={users}/>
         <NormalTable data={users}/>
         </Grid>
         <DeleteModel
