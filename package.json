@@ -22,7 +22,7 @@
     "@types/react-webcam": "^3.0.0",
     "axios": "^1.4.0",
     "chakra-dayzed-datepicker": "^0.2.9",
-    "chart.js": "^4.3.0",
+    "chart.js": "^4.4.2",
     "clsx": "^2.1.0",
     "countries-states-cities": "^1.0.6",
     "country-state-city": "^3.2.1",

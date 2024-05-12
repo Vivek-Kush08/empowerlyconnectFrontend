@@ -11,6 +11,8 @@ import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
 import { dashBreadCrumb } from "./utils/breadcrumb.constant";
 import NormalTable from "../../config/component/Table/NormalTable/NormalTable";
 import RecentUserTable from "../../config/component/Table/RecentUserTable/RecentUserTable";
+// import UserActivityFeed from "../../config/component/UserActivityFeed/UserActivityFeed";
+// import StudentActivityChart from "../../config/component/StudentActivityChart/StudentActivityChart";
 // import DashboardRight from "./component/DashboardRight";
 // import MyCoursesTable from "./component/MyCoursesTable";
 // import SkeletanCategoryCard from "../../config/component/Card/CategoryCard/SkeletanCategoryCard";
@@ -23,12 +25,18 @@ const DashboardIndex = observer(() => {
     quiz: { setDeleteCategoryModal },
   } = store;
 
-  const users : any = [
-    { id: 1, name: "John doe doe", age: 30, country: "USA", email: "john@example.com" },
-    { id: 2, name: "Jane", age: 25, country: "USA", email: "jane@example.com"},
-    { id: 3, name: "Doe", age: 40, country: "USA", email: "doe@example.com"},
-    { id: 4, name: "Doe", age: 40, country: "USA", email: "doe@example.com"},
-    { id: 5, name: "Doe", age: 40, country: "USA", email: "doe@example.com"}
+  const users: any = [
+    {
+      id: 1,
+      name: "John doe doe",
+      age: 30,
+      country: "USA",
+      email: "john@example.com",
+    },
+    { id: 2, name: "Jane", age: 25, country: "USA", email: "jane@example.com" },
+    { id: 3, name: "Doe", age: 40, country: "USA", email: "doe@example.com" },
+    { id: 4, name: "Doe", age: 40, country: "USA", email: "doe@example.com" },
+    { id: 5, name: "Doe", age: 40, country: "USA", email: "doe@example.com" },
   ];
 
   return (
@@ -42,12 +50,15 @@ const DashboardIndex = observer(() => {
             </Box>
             <DashWidgetCard />
             {/* <SkeletanCategoryCard/> */}
-            <Grid templateColumns={'1fr 1fr'} gap={2}>
-
-            <DashChartContainer />
-            <Box>
-              hellpo world
-            </Box>
+            <Grid  gap={6} my={6}>
+              <DashChartContainer />
+              {/* <Box>
+                <StudentActivityChart />
+                <Grid templateColumns={"1fr 1fr"} my={6}>
+                  <Box>as</Box>
+                  <UserActivityFeed />
+                </Grid>
+              </Box> */}
             </Grid>
           </GridItem>
           {/* <GridItem>
@@ -55,9 +66,9 @@ const DashboardIndex = observer(() => {
         </GridItem> */}
           {/* <MyCoursesTable /> */}
         </Grid>
-        <Grid templateColumns={{base : "1fr", md : "1fr 1fr"}} columnGap={4}>
-        <RecentUserTable data={users}/>
-        <NormalTable data={users}/>
+        <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} columnGap={4}>
+          <RecentUserTable data={users} />
+          <NormalTable data={users} />
         </Grid>
         <DeleteModel
           id={store.quiz.openDeleteCategoryModal?.data?._id}

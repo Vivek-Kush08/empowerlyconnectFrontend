@@ -1,10 +1,13 @@
-import { Card, Grid } from "@chakra-ui/react";
+import { Box, Card, Grid } from "@chakra-ui/react";
 import BarChart from "../../../config/component/charts/BarChart";
 import { observer } from "mobx-react-lite";
 import store from "../../../store/store";
 import { useEffect } from "react";
 import { makeChartResponse } from "./utils/common";
 import LineGraph from "../../../config/component/charts/LineChart";
+import StudentActivityChart from "../../../config/component/StudentActivityChart/StudentActivityChart";
+import MyCoursesCard from "../../../config/component/MyCoursesCard/MyCoursesCard";
+import UserActivityFeed from "../../../config/component/UserActivityFeed/UserActivityFeed";
 
 const DashChartContainer = observer(() => {
   const {
@@ -45,26 +48,29 @@ const DashChartContainer = observer(() => {
   );
 
   return (
-    <Grid
-      // templateColumns={{ base: "1fr", lg: "1fr 1fr" }}
-      gap={5}
-      mb={5}
-      mt={5}
-    >
-      <Card width={"100%"} minH={350} p={{ base: 0, sm: 2 }}>
+    <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={5}>
+      <Card w={"100%"} minH={150} p={{ base: 0, sm: 2 }}>
         <BarChart
           data={null}
           options={coursesChartData?.options}
           loading={categoryCoursesCount.loading}
         />
       </Card>
-      <Card width={"100%"} minH={250} p={{ base: 0, sm: 2 }}>
+      <Grid  gap={2}>
+      <Box>
+        <MyCoursesCard/>
+      </Box>
+        <UserActivityFeed />
+      </Grid>
+
+      <Card w={"100%"} minH={150} p={{ base: 0, sm: 2 }}>
         <LineGraph
           data={videosChartData?.data}
           options={videosChartData?.options}
           loading={categoryVideosCount.loading}
         />
       </Card>
+      <StudentActivityChart />
     </Grid>
   );
 });
