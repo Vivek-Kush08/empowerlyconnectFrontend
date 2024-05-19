@@ -47,6 +47,18 @@ const DashChartContainer = observer(() => {
     ["#FF5733", "#33FF57", "#3366FF", "#FF33A1", "#FFD700"]
   );
 
+  const coursesData = [
+    {
+      name: "Figma",
+      imageUrl: "https://cdn-icons-png.flaticon.com/128/5968/5968705.png",
+      title: "Figma UI UX Design",
+      academy: "Abcd Academy",
+      completion: 64,
+      timeLeft: "3 hr 20 min left",
+    },
+   
+  ];
+
   return (
     <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={5}>
       <Card w={"100%"} minH={150} p={{ base: 0, sm: 2 }}>
@@ -56,10 +68,12 @@ const DashChartContainer = observer(() => {
           loading={categoryCoursesCount.loading}
         />
       </Card>
-      <Grid  gap={2}>
-      <Box>
-        <MyCoursesCard/>
-      </Box>
+      <Grid gap={2}>
+        <Box>
+          {coursesData.map((course, index) => (
+            <MyCoursesCard key={index} course={course} />
+          ))}
+        </Box>
         <UserActivityFeed />
       </Grid>
 

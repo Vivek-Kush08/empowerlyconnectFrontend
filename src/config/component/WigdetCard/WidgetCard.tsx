@@ -65,9 +65,9 @@ const WidgetCard = ({
           </Flex>
           <Flex justify="space-between" alignItems="center">
             <Text>completed orders</Text>
-            <Text fontSize="sm" fontWeight="bold">
+            {/* <Text fontSize="sm" fontWeight="bold">
               {count < totalCount ? count : totalCount}
-            </Text>
+            </Text> */}
           </Flex>
         </>
       )}
